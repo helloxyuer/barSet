@@ -14,15 +14,10 @@ var app = new Vue({
         isSubmit:false,
         setArr: []
     },
-    beforeCreate: function () {
-
-    },
     created: function () {
         this.creatTimeArr();
         this.getBarSet();
 
-    },
-    mounted: function () {
     },
     methods: {
         //创建时间数组
@@ -129,7 +124,7 @@ var app = new Vue({
                     if(resVal.code==0){
                         that.errTipsFun('预定成功')
                         setTimeout(function () {
-                            window.location.href ="enditMySet.html?ClientType=Ent&baseuserid=" + baseuserid
+                            window.location.href ="enditMySet.html?arrivaldate="+(that.arrivaldate||'')+"&openId=" + (that.openId||'')+"&number=" + (selectSet.number||'')
                         },1000)
                     }else{
                         that.requestErrFun(resVal.msg)
