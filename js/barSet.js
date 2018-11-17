@@ -3,15 +3,7 @@ var instance = axios.create({
     timeout: 1000,
     headers: {'X-Custom-Header': 'foobar'}
 });
-var showSubmit = function (msg) {
-    console.error(msg)
-}
-var requestErrFun = function (err) {
-    console.error(err.msg)
-}
-var netErrFun = function (err) {
-    console.error('网络异常')
-}
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -84,10 +76,10 @@ var app = new Vue({
                         })
                         that.setArr = resArr;
                     }else{
-                        requestErrFun(resVal.msg)
+                        that.requestErrFun(resVal.msg)
                     }
                 }
-            }).catch(netErrFun);
+            }).catch(that.netErrFun);
         },
         //选择该座
         pickedThisSet(item){
@@ -129,7 +121,6 @@ var app = new Vue({
                 arrivaldate:this.arrivaldate,
                 openId:'10000',
             }
-            showSubmit('提交中...');
             that.isSubmit = true;
             instance.post('app/seat/lockSeat', Qs.stringify(params)).then(function (res) {
                 that.isSubmit = false;
@@ -137,13 +128,16 @@ var app = new Vue({
                 if(res.status=='200' &&　resVal){
                     if(resVal.code==0){
                         that.errTipsFun('预定成功')
+                        setTimeout(function () {
+                            window.location.href ="enditMySet.html?ClientType=Ent&baseuserid=" + baseuserid
+                        },1000)
                     }else{
-                        requestErrFun(resVal.msg)
+                        that.requestErrFun(resVal.msg)
                     }
                 }
             }).catch(function(err){
                 that.isSubmit = false;
-                netErrFun(err)
+                that.netErrFun(err)
             });
 
         },
@@ -160,10 +154,10 @@ var app = new Vue({
                     if(resVal.code==0){
                         //
                     }else{
-                        requestErrFun(resVal.msg)
+                        that.requestErrFun(resVal.msg)
                     }
                 }
-            }).catch(netErrFun);
+            }).catch(that.netErrFun);
         },
         errTipsFun:function (err,time) {
             var that = this;
@@ -172,6 +166,12 @@ var app = new Vue({
             setTimeout(function () {
                 that.tips = '';
             },time)
+        },
+        requestErrFun:function (err) {
+            this.errTipsFun(err.msg)
+        },
+        netErrFun:function (err) {
+            this.errTipsFun('网络异常')
         }
 
     },
