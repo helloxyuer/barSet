@@ -136,24 +136,6 @@ var app = new Vue({
             });
 
         },
-        moban: function () {
-            var that = this;
-            var params = {
-                number:1 ,
-                arrivaldate:1,
-                openId:30,
-            }
-            instance.post('app/seat/list', Qs.stringify(params)).then(function (res) {
-                var resVal = res.data;
-                if(res.status=='200' &&　resVal){
-                    if(resVal.code==0){
-                        //
-                    }else{
-                        that.requestErrFun(resVal.msg)
-                    }
-                }
-            }).catch(that.netErrFun);
-        },
         errTipsFun:function (err,time) {
             var that = this;
             time = time||'1000';
