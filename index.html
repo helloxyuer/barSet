@@ -3,18 +3,53 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
-    <title>编辑优势服务</title>
+    <title>吧台座位预定</title>
     <link href="css/barSet.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/qs.js"></script>
+    <script src="js/axios.min.js"></script>
 </head>
 <body>
 <div id="app">
-
-    <div class="barSelectBox">
-
+    <div class="timeBox">
+        <div class="timeUnit" @click="pickedTime(item)" :class="{pickedTime:item.picked}" v-for="item in timeArr">{{item.time}}</div>
     </div>
-
+    <div class="barSelectBox">
+        <div class="barUnit" :class="item.barclass" v-for="(item,index) in setArr" @click="pickedThisSet(item)">
+            <img :src="item.status==0?(item.imgurl_selected):(item.pressed?item.imgurl_press:item.imgurl_normal)" alt="">
+        </div>
+    </div>
+    <div class="submitSet" @click="submitSet">提交</div>
+    <!--提示框-->
+    <div class="tipsbox" v-show="!!tips">{{tips}}</div>
+    <!--提交提示框-->
+    <div class="submitBox" v-show="!!isSubmit">
+        <div class="submitBox_center">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+            <div class="spinner_text">提交中...</div>
+        </div>
+    </div>
+    
 </div>
+<script src="js/barSet.js"></script>
 </body>
 </html>
