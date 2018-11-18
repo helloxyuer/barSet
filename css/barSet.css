@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-}
 
 .barSelectBox {
     margin: 40px 0;
@@ -11,7 +7,8 @@ body {
     background-size: 100% 100%;
     position: relative;
 }
-.timeBox{
+
+.timeBox {
     background: #fff;
     height: 40px;
     line-height: 40px;
@@ -25,7 +22,7 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
-.timeUnit{
+.timeUnit {
     display: inline-block;
     width: 100px;
     padding: 0 15px;
@@ -33,12 +30,12 @@ body {
     border-bottom: 1px solid #fff;
 }
 
-
-.pickedTime{
+.pickedTime {
     color: #fff;
     text-align: center;
-    background:  #ff6d26;
+    background: #ff6d26;
 }
+
 .barUnit {
 
 }
@@ -152,7 +149,6 @@ body {
     top: 50vw;
 }
 
-
 .bar16 {
     width: calc(156 / 1125 * 100vw);
     height: calc(173 / 1125 * 100vw);
@@ -161,7 +157,6 @@ body {
     top: 46vw;
 }
 
-
 .bar17 {
     width: calc(135 / 1125 * 100vw);
     height: calc(135 / 1125 * 100vw);
@@ -169,13 +164,15 @@ body {
     left: 26vw;
     top: 37vw;
 }
-.bar18{
+
+.bar18 {
     width: calc(156 / 1125 * 100vw);
     height: calc(173 / 1125 * 100vw);
     position: absolute;
     left: 25vw;
     top: 15vw;
 }
+
 .bar19 {
     width: calc(147 / 1125 * 100vw);
     height: calc(51 / 1125 * 100vw);
@@ -183,6 +180,7 @@ body {
     left: 51vw;
     top: 37vw;
 }
+
 .bar20 {
     width: calc(198 / 1125 * 100vw);
     height: calc(150 / 1125 * 100vw);
@@ -190,6 +188,7 @@ body {
     left: 43vw;
     top: 52vw;
 }
+
 .bar21 {
     width: calc(135 / 1125 * 100vw);
     height: calc(135 / 1125 * 100vw);

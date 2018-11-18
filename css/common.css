@@ -1,3 +1,12 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .submitSet {
     width: 100%;
     height: 40px;
@@ -10,7 +19,8 @@
     bottom: 0;
     left: 0;
 }
-.tipsbox{
+
+.tipsbox {
     font-size: 12px;
     padding: 10px 10px;
     white-space: nowrap;
@@ -22,6 +32,7 @@
     color: #fff;
     border-radius: 5px;
 }
+
 .submitBox {
     position: fixed;
     left: 0;
@@ -41,7 +52,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
-.modelBg{
+
+.modelBg {
     position: fixed;
     left: 0;
     top: 0;
@@ -49,7 +61,8 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
 }
-.modelBox{
+
+.modelBox {
     border-radius: 5px;
     width: 80%;
     background: #fff;
@@ -58,26 +71,31 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
-.modelTitle{
+
+.modelTitle {
     padding: 12px;
     text-align: center;
 }
-.modelBtnBox{
+
+.modelBtnBox {
     height: 40px;
     line-height: 40px;
     border-top: 1px solid #ccc;
     display: flex;
 }
-.cancelBtn{
+
+.cancelBtn {
     flex: 1;
     text-align: center;
     border-right: 1px solid #ccc;
 }
-.sureBtn{
+
+.sureBtn {
     flex: 1;
     text-align: center;
     color: #ff6d26;
 }
+
 /*loading效果*/
 .spinner {
     margin: 15px auto;
