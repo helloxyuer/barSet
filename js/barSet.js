@@ -64,21 +64,21 @@ var app = new Vue({
                             data.imgurl_press = './images/'+ data.number+'_press@3x.png',
                             data.imgurl_normal = './images/'+ data.number+'_normal@3x.png'
                         })
-                        var mockArr =[]
-                        for(var i=0;i<22;i++){
-                            if(i!=4){
-                                mockArr.push({
-                                    number: i,
-                                    status: 1,
-                                    pressed:false,
-                                    barclass:'bar'+ i,
-                                    imgurl_selected : './images/'+ i+'_selected@3x.png',
-                                    imgurl_press : './images/'+ i+'_press@3x.png',
-                                    imgurl_normal : './images/'+ i+'_normal@3x.png'
-                                })
-                            }
-                        }
-                        that.setArr = mockArr;
+                        // var mockArr =[]
+                        // for(var i=0;i<22;i++){
+                        //     if(i!=4){
+                        //         mockArr.push({
+                        //             number: i,
+                        //             status: 1,
+                        //             pressed:false,
+                        //             barclass:'bar'+ i,
+                        //             imgurl_selected : './images/'+ i+'_selected@3x.png',
+                        //             imgurl_press : './images/'+ i+'_press@3x.png',
+                        //             imgurl_normal : './images/'+ i+'_normal@3x.png'
+                        //         })
+                        //     }
+                        // }
+                        that.setArr = resArr;
                     }else{
                         that.requestErrFun(resVal.msg)
                     }
@@ -131,7 +131,7 @@ var app = new Vue({
                 var resVal = res.data;
                 if(res.status=='200' &&　resVal){
                     if(resVal.code==0){
-                        that.errTipsFun('预定成功')
+                        that.errTipsFun('位置已为你锁定15分钟，请尽快完成预定操作')
                         setTimeout(function () {
                             window.location.href ="enditMySet.html?arrivaldate="+(that.arrivaldate||'')+"&openId=" + (that.openId||'')+"&number=" + (selectSet.number||'')+"&num=" + (selectSet.num||'')
                         },1000)
