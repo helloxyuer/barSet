@@ -33,7 +33,7 @@ var app = new Vue({
         },
         pickeedDel:function(item){
             this.delItem = item;
-            this.deleteMsg = item.arrivaldate+'的'+item.number;
+            this.deleteMsg = item.arrivaldate+'日的'+item.number+'号桌';
             this.showModel = true
         },
         //不取消
