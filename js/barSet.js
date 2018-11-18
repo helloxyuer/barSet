@@ -64,7 +64,21 @@ var app = new Vue({
                             data.imgurl_press = './images/'+ data.number+'_press@3x.png',
                             data.imgurl_normal = './images/'+ data.number+'_normal@3x.png'
                         })
-                        that.setArr = resArr;
+                        var mockArr =[]
+                        for(var i=0;i<22;i++){
+                            if(i!=4){
+                                mockArr.push({
+                                    number: i,
+                                    status: 1,
+                                    pressed:false,
+                                    barclass:'bar'+ i,
+                                    imgurl_selected : './images/'+ i+'_selected@3x.png',
+                                    imgurl_press : './images/'+ i+'_press@3x.png',
+                                    imgurl_normal : './images/'+ i+'_normal@3x.png'
+                                })
+                            }
+                        }
+                        that.setArr = mockArr;
                     }else{
                         that.requestErrFun(resVal.msg)
                     }

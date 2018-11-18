@@ -73,23 +73,23 @@
     width: calc(99 / 1125 * 100vw);
     height: calc(149 / 1125 * 100vw);
     position: absolute;
-    left: 87vw;
-    top: 68vw;
+    left: 82vw;
+    top: 71vw;
 }
 
 .bar6 {
     width: calc(149 / 1125 * 100vw);
     height: calc(99 / 1125 * 100vw);
     position: absolute;
-    left: 67vw;
-    top: 65vw;
+    left: 66vw;
+    top: 67vw;
 }
 
 .bar7 {
     width: calc(149 / 1125 * 100vw);
     height: calc(99 / 1125 * 100vw);
     position: absolute;
-    left: 67vw;
+    left: 66vw;
     top: 77vw;
 }
 
@@ -105,7 +105,7 @@
     width: calc(147 / 1125 * 100vw);
     height: calc(51 / 1125 * 100vw);
     position: absolute;
-    left: 66vw;
+    left: 61vw;
     top: 87vw;
 }
 
@@ -113,7 +113,7 @@
     width: calc(147 / 1125 * 100vw);
     height: calc(51 / 1125 * 100vw);
     position: absolute;
-    left: 49vw;
+    left: 44vw;
     top: 87vw;
 }
 
@@ -121,7 +121,7 @@
     width: calc(99 / 1125 * 100vw);
     height: calc(149 / 1125 * 100vw);
     position: absolute;
-    left: 55vw;
+    left: 55.5vw;
     top: 72vw;
 }
 
@@ -129,7 +129,7 @@
     width: calc(99 / 1125 * 100vw);
     height: calc(149 / 1125 * 100vw);
     position: absolute;
-    left: 44vw;
+    left: 43vw;
     top: 72vw;
 }
 
@@ -137,23 +137,23 @@
     width: calc(99 / 1125 * 100vw);
     height: calc(149 / 1125 * 100vw);
     position: absolute;
-    left: 32vw;
-    top: 64vw;
+    left: 31vw;
+    top: 66vw;
 }
 
 .bar15 {
     width: calc(99 / 1125 * 100vw);
     height: calc(149 / 1125 * 100vw);
     position: absolute;
-    left: 28vw;
-    top: 50vw;
+    left: 25vw;
+    top: 52vw;
 }
 
 .bar16 {
     width: calc(156 / 1125 * 100vw);
     height: calc(173 / 1125 * 100vw);
     position: absolute;
-    left: 12vw;
+    left: 9vw;
     top: 46vw;
 }
 
@@ -161,24 +161,24 @@
     width: calc(135 / 1125 * 100vw);
     height: calc(135 / 1125 * 100vw);
     position: absolute;
-    left: 26vw;
-    top: 37vw;
+    left: 22.5vw;
+    top: 38vw;
 }
 
 .bar18 {
     width: calc(156 / 1125 * 100vw);
     height: calc(173 / 1125 * 100vw);
     position: absolute;
-    left: 25vw;
-    top: 15vw;
+    left: 22.5vw;
+    top: 13.5vw;
 }
 
 .bar19 {
     width: calc(147 / 1125 * 100vw);
     height: calc(51 / 1125 * 100vw);
     position: absolute;
-    left: 51vw;
-    top: 37vw;
+    left: 50vw;
+    top: 37.5vw;
 }
 
 .bar20 {
@@ -193,6 +193,6 @@
     width: calc(135 / 1125 * 100vw);
     height: calc(135 / 1125 * 100vw);
     position: absolute;
-    left: 63vw;
-    top: 52vw;
+    left: 62vw;
+    top: 54vw;
 }
