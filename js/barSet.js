@@ -12,7 +12,8 @@ var app = new Vue({
         timeArr:[],//时间列表
         selectSet:{},//锁定的座位
         isSubmit:false,
-        setArr: []
+        setArr: [],
+        openId:'10000'
     },
     created: function () {
         this.creatTimeArr();
@@ -114,7 +115,7 @@ var app = new Vue({
             var params = {
                 number:selectSet.number ,
                 arrivaldate:this.arrivaldate,
-                openId:'10000',
+                openId:this.openId,
             }
             that.isSubmit = true;
             instance.post('app/seat/lockSeat', Qs.stringify(params)).then(function (res) {

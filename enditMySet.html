@@ -1,35 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
     <title>预定信息</title>
-    <link href="css/barSet.css" rel="stylesheet" type="text/css">
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/enditMySet.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/qs.js"></script>
     <script src="js/axios.min.js"></script>
 </head>
 <body>
 <div id="app">
-    <div>
-        已选择:{{arrivaldate}}的{{number}}号座位
+    <div class="pickedMsg">
+        <span>已选择:</span>
+        <span><span class="yellowWord">{{arrivaldate}}</span>的<span class="yellowWord">{{number}}</span>号座位</span>
     </div>
-    <div>
-        <div>到店时间</div>
-        <div>{{time}}</div>
+    <div class="selectedBox">
+        <div class="iputBox">
+            <div class="inputTitle">到店时间</div>
+            <div class="inputContent">
+                <input type="text" v-model="time" placeholder="请选择到店时间">
+            </div>
+        </div>
+        <div  class="iputBox">
+            <div class="inputTitle">姓名</div>
+            <div class="inputContent">
+                <input type="text" v-model.trim="name" maxlength="15" placeholder="请输入姓名">
+            </div>
+        </div>
+        <div  class="iputBox">
+            <div class="inputTitle">手机号</div>
+            <div class="inputContent">
+                <input type="tel" v-model.number.trim="phone" @change="inputPhone" placeholder="请输入手机号">
+            </div>
+        </div>
+        <div  class="iputBox">
+            <div class="inputTitle">来客人数</div>
+            <div class="inputContent">
+                <input type="number" v-model.number.trim="num" placeholder="请输入来客人数">
+            </div>
+        </div>
     </div>
-    <div>
-        <div>姓名</div>
-        <div>{{name}}</div>
-    </div>
-    <div>
-        <div>手机号</div>
-        <div>{{phone}}</div>
-    </div>
-    <div>
-        <div>来客人数</div>
-        <div>{{num}}</div>
+    <div class="submitSet" @click="submitSet">确认提交</div>
+    <!--提示框-->
+    <div class="tipsbox" v-show="!!tips">{{tips}}</div>
+    <!--提交提示框-->
+    <div class="submitBox" v-show="!!isSubmit">
+        <div class="submitBox_center">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+            <div class="spinner_text">提交中...</div>
+        </div>
     </div>
 </div>
 <script src="js/enditMySet.js"></script>

@@ -26,6 +26,8 @@ var instance = axios.create({
 var app = new Vue({
     el: '#app',
     data: {
+        tips:'',
+        isSubmit:false,
         number:passParams.number,//传过来的参数
         arrivaldate:passParams.arrivaldate||'',//当前选择时间
         time:'',
@@ -50,6 +52,29 @@ var app = new Vue({
                     }
                 }
             }).catch(that.netErrFun);
+        },
+        //确认提交
+        submitSet:function(){
+
+        },
+        //校验数据
+        checkParams:function(){
+            if (!this.name) {
+                this.errTipsFun('请输入姓名')
+                return
+            }
+            if (!this.num) {
+                this.errTipsFun('请输入到客人数')
+                return
+            }
+            if (!this.phone) {
+                this.errTipsFun('请输入电话')
+                return
+            }
+            if (!/^1[0-9]{10}$/.test(this.phone)) {
+                this.errTipsFun('电话号有误')
+                return
+            }
         },
         errTipsFun:function (err,time) {
             var that = this;

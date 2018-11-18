@@ -4,6 +4,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
     <title>吧台座位预定</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/barSet.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/qs.js"></script>
@@ -19,7 +20,7 @@
             <img :src="item.status==0?(item.imgurl_selected):(item.pressed?item.imgurl_press:item.imgurl_normal)" alt="">
         </div>
     </div>
-    <div class="submitSet" @click="submitSet">提交</div>
+    <div class="submitSet" @click="submitSet">确认选座</div>
     <!--提示框-->
     <div class="tipsbox" v-show="!!tips">{{tips}}</div>
     <!--提交提示框-->
@@ -48,7 +49,6 @@
             <div class="spinner_text">提交中...</div>
         </div>
     </div>
-    
 </div>
 <script src="js/barSet.js"></script>
 </body>
