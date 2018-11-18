@@ -7,11 +7,11 @@ if(!params.code){
     var passData = {
         code:params.code
     }
-    instance.post('app/seat/seatplan', Qs.stringify(passData)).then(function (res) {
+    instance.post('app/seat/openid', Qs.stringify(passData)).then(function (res) {
         var resVal = res.data;
         if(res.status=='200' &&　resVal){
             if(resVal.code==0){
-                window.openid = resVal.data.openid
+                window.openid = resVal.data
             }
         }
     });

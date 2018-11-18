@@ -7,7 +7,7 @@ var app = new Vue({
         selectSet:{},//锁定的座位
         isSubmit:false,
         setArr: [],
-        openId:window.openid
+        openId:''
     },
     created: function () {
         this.creatTimeArr();
@@ -105,6 +105,7 @@ var app = new Vue({
         },
         //提交座位数据
         submitSet(){
+            this.openId = window.openid;
             var that = this;
             var selectSet = this.setArr.find(function (data) {
                 if(data.pressed){
