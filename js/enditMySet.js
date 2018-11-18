@@ -89,7 +89,7 @@ var app = new Vue({
                     if(resVal.code==0){
                         that.errTipsFun('预定成功')
                         setTimeout(function () {
-                            window.location.href ="index.html"
+                            window.location.href ="mySet.html?openId="+(that.openId||'')
                         },1000)
                     }else{
                         that.requestErrFun(resVal.msg)

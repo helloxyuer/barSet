@@ -2,10 +2,12 @@ body {
     margin: 0;
     padding: 0;
 }
-.selectedBox{
+
+.selectedBox {
     padding: 50px 12px 40px 12px;
 }
-.submitSet{
+
+.submitSet {
     width: 100%;
     height: 40px;
     line-height: 40px;
@@ -17,17 +19,20 @@ body {
     bottom: 0;
     left: 0;
 }
-.yellowWord{
+
+.yellowWord {
     color: #ff6d26;
     font-size: 20px;
     padding: 0 5px;
 }
-.iputBox{
+
+.iputBox {
     height: 40px;
     line-height: 40px;
-    border-bottom: 1px  solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
-.pickedMsg{
+
+.pickedMsg {
     position: fixed;
     left: 0;
     top: 0;
@@ -39,26 +44,33 @@ body {
     line-height: 40px;
     padding-bottom: 10px;
 }
-.inputTitle{
+
+.inputTitle {
     float: left;
     width: 100px;
 }
-.inputContent{
+
+.inputContent {
     margin-left: 100px;
 }
-.inputContent input{
+
+.inputContent input {
     font-size: 14px;
     border: 0;
     outline: 0;
     margin: 0;
     padding: 0;
 }
-input:disabled{
-    border:1px solid #fff;
-    background-color:#fff;
-    color:#666;
+
+input:disabled {
+    background-color: #fff;
+    color: #ddd;
+    opacity: 1;
+    -webkit-text-fill-color: #666;
+    -webkit-opacity: 1;
 }
-.timebox{
+
+.timebox {
     float: left;
     text-align: center;
     width: calc(25% - 11px);
@@ -67,7 +79,8 @@ input:disabled{
     line-height: 30px;
     margin: 5px;
 }
-.timeModelBg{
+
+.timeModelBg {
     position: fixed;
     left: 0;
     top: 0;
@@ -75,7 +88,8 @@ input:disabled{
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
 }
-.timeModel{
+
+.timeModel {
     padding: 12px;
     border-radius: 5px;
     width: 80%;
@@ -85,7 +99,8 @@ input:disabled{
     top: 50%;
     transform: translate(-50%, -50%);
 }
-.timeTitle{
+
+.timeTitle {
     height: 40px;
     line-height: 40px;
     text-align: center;

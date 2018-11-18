@@ -60,9 +60,9 @@ var app = new Vue({
                         resArr.forEach(function (data) {
                             data.pressed = false,
                             data.barclass = 'bar'+ data.number,
-                            data.imgurl_selected = '../images/'+ data.number+'_selected@3x.png',
-                            data.imgurl_press = '../images/'+ data.number+'_press@3x.png',
-                            data.imgurl_normal = '../images/'+ data.number+'_normal@3x.png'
+                            data.imgurl_selected = './images/'+ data.number+'_selected@3x.png',
+                            data.imgurl_press = './images/'+ data.number+'_press@3x.png',
+                            data.imgurl_normal = './images/'+ data.number+'_normal@3x.png'
                         })
                         that.setArr = resArr;
                     }else{
