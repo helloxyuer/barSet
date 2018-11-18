@@ -11,7 +11,7 @@
     <script src="js/axios.min.js"></script>
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak>
     <div class="timeBox">
         <div class="timeUnit" @click="pickedTime(item)" :class="{pickedTime:item.picked}" v-for="item in timeArr">{{item.time}}</div>
     </div>
