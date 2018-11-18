@@ -1,9 +1,3 @@
-var instance = axios.create({
-    baseURL: window.location.origin+'/renren-fast/',
-    timeout: 1000,
-    headers: {'X-Custom-Header': 'foobar'}
-});
-
 var app = new Vue({
     el: '#app',
     data: {
@@ -125,7 +119,7 @@ var app = new Vue({
                     if(resVal.code==0){
                         that.errTipsFun('预定成功')
                         setTimeout(function () {
-                            window.location.href ="enditMySet.html?arrivaldate="+(that.arrivaldate||'')+"&openId=" + (that.openId||'')+"&number=" + (selectSet.number||'')
+                            window.location.href ="enditMySet.html?arrivaldate="+(that.arrivaldate||'')+"&openId=" + (that.openId||'')+"&number=" + (selectSet.number||'')+"&num=" + (selectSet.num||'')
                         },1000)
                     }else{
                         that.requestErrFun(resVal.msg)

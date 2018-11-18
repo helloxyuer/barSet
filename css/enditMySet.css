@@ -32,6 +32,9 @@ body {
     left: 0;
     top: 0;
     padding: 0 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
     height: 40px;
     line-height: 40px;
     padding-bottom: 10px;

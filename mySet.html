@@ -4,14 +4,73 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
-    <title>我的预定</title>
+    <title>我的预订</title>
     <link href="css/common.css" rel="stylesheet" type="text/css">
-    <link href="css/barSet.css" rel="stylesheet" type="text/css">
+    <link href="css/mySet.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/qs.js"></script>
     <script src="js/axios.min.js"></script>
 </head>
 <body>
+<div id="app">
+    <div class="myorder">我的预定:</div>
+    <div class="orderArrBox">
+        <div class="orderBox" v-for="item in myOrderList">
+            <div>
+                <span>{{item.arrivaldate}}</span>
+                <span class="cancel" @click="cancelOrder(item)">取消</span>
+            </div>
+            <div>
+                <div class="orderUnit">
+                    <div class="orderTitle">姓名</div>
+                    <div class="orderContent">{{item.name}}</div>
+                </div>
+                <div class="orderUnit">
+                    <div class="orderTitle">电话</div>
+                    <div class="orderContent">{{item.phone}}</div>
+                </div>
+                <div class="orderUnit">
+                    <div class="orderTitle">到店时间</div>
+                    <div class="orderContent">{{item.arrivaltime}}</div>
+                </div>
+                <div class="orderUnit">
+                    <div class="orderTitle">到店人数</div>
+                    <div class="orderContent">{{item.num}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--提示框-->
+    <div class="tipsbox" v-show="!!tips">{{tips}}</div>
+    <!--提交提示框-->
+    <div class="submitBox" v-show="!!isSubmit">
+        <div class="submitBox_center">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+            <div class="spinner_text">提交中...</div>
+        </div>
+    </div>
+</div>
+<script src="js/common.js"></script>
 <script src="js/mySet.js"></script>
 </body>
 </html>

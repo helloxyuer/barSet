@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.myorder{
+    padding: 0 12px;
+    line-height: 40px;
+    height: 40px
+}
+.orderArrBox{
+    padding: 12px;
+}
+.orderBox{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 12px 12px 0 12px;
+    margin-bottom: 12px;
+}
+.cancel{
+    color: #ff6d26;
+    float: right;
+}
+.orderTitle{
+    width: 100px;
+    float: left;
+}
+.orderContent{
+    margin-left: 100px;
+}
+.orderUnit{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 12px;
+    border-bottom: 1px solid #ccc;
+}
+.orderUnit:last-child{
+    border-bottom: 0px;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
-    <title>预定信息</title>
+    <title>提交预订信息</title>
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/enditMySet.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,7 +21,7 @@
         <div class="iputBox">
             <div class="inputTitle">到店时间</div>
             <div class="inputContent">
-                <input type="text" v-model="time" placeholder="请选择到店时间">
+                <input type="text" v-model="arrivaltime" placeholder="请选择到店时间">
             </div>
         </div>
         <div  class="iputBox">
@@ -33,7 +33,7 @@
         <div  class="iputBox">
             <div class="inputTitle">手机号</div>
             <div class="inputContent">
-                <input type="tel" v-model.number.trim="phone" @change="inputPhone" placeholder="请输入手机号">
+                <input type="tel" v-model.number.trim="phone" placeholder="请输入手机号">
             </div>
         </div>
         <div  class="iputBox">
@@ -73,6 +73,7 @@
         </div>
     </div>
 </div>
+<script src="js/common.js"></script>
 <script src="js/enditMySet.js"></script>
 </body>
 </html>

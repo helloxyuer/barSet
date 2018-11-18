@@ -28,10 +28,10 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
 }
 
 .submitBox_center {
+    border: 1px solid #ccc;
     width: 140px;
     height: 80px;
     position: absolute;
