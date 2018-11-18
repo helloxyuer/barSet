@@ -103,6 +103,10 @@ var app = new Vue({
         },
         //校验数据
         checkParams:function(){
+            if (!this.arrivaltime) {
+                this.errTipsFun('请选择到店时间')
+                return
+            }
             if (!this.name) {
                 this.errTipsFun('请输入姓名')
                 return
