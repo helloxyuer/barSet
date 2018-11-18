@@ -10,7 +10,7 @@ var app = new Vue({
         barOpentime:'',//营业时间
         number:passParams.number||'',
         maxnum:passParams.num||'',
-        openId:passParams.openId||'',
+        openId:passParams.openId||window.openid,
         arrivaldate:passParams.arrivaldate||'',//当前选择时间
         arrivaltime:'',
         name:'',
@@ -73,7 +73,7 @@ var app = new Vue({
                 return
             }
             var params = {
-                openId:this.openId,
+                openId:this.openId||window.openid,
                 number:this.number,
                 arrivaldate:this.arrivaldate,
                 arrivaltime:this.arrivaltime,

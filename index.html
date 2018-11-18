@@ -20,6 +20,7 @@
             <img :src="item.status==0?(item.imgurl_selected):(item.pressed?item.imgurl_press:item.imgurl_normal)" alt="">
         </div>
     </div>
+    <div>{{code}}</div>
     <div class="submitSet" @click="submitSet">确认选座</div>
     <!--提示框-->
     <div class="tipsbox" v-show="!!tips">{{tips}}</div>

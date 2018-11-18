@@ -4,11 +4,17 @@ var local = window.location.href;
 if(!params.code){
     window.location.href ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri='+encodeURIComponent(local)+'&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect'
 }else{
-    axios.get("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + appid + "&secret=" + appsecret
-        + "&code=" + params.code + "&grant_type=authorization_code").then(function (data) {
-            console.log(data)
-
-    })
+    var passData = {
+        code:params.code
+    }
+    instance.post('app/seat/seatplan', Qs.stringify(passData)).then(function (res) {
+        var resVal = res.data;
+        if(res.status=='200' &&　resVal){
+            if(resVal.code==0){
+                window.openid = resVal.data.openid
+            }
+        }
+    });
 
 
     //getOpenId(params.code)

@@ -18,7 +18,7 @@ var app = new Vue({
         getMyBarSet: function () {
             var that = this;
             var params = {
-                openId: this.openId||'10000',
+                openId: this.openId||window.openid,
             }
             instance.post('app/seat/myseatplan', Qs.stringify(params)).then(function (res) {
                 var resVal = res.data;
