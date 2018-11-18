@@ -48,7 +48,7 @@ var app = new Vue({
                         that.barOpentime = resVal.data;
                         that.creatTimeArr();
                     }else{
-                        that.requestErrFun(resVal.msg)
+                        that.requestErrFun(res.data.msg)
                     }
                 }
             }).catch(that.netErrFun);
@@ -92,7 +92,7 @@ var app = new Vue({
                             window.location.href ="mySet.html?openId="+(that.openId||'')
                         },1000)
                     }else{
-                        that.requestErrFun(resVal.msg)
+                        that.requestErrFun(res.data.msg)
                     }
                 }
             }).catch(function(err){
@@ -128,14 +128,14 @@ var app = new Vue({
         },
         errTipsFun:function (err,time) {
             var that = this;
-            time = time||'1000';
+            time = time||'1500';
             that.tips = err;
             setTimeout(function () {
                 that.tips = '';
             },time)
         },
-        requestErrFun:function (err) {
-            this.errTipsFun(err.msg)
+        requestErrFun:function (msg) {
+            this.errTipsFun(msg)
         },
         netErrFun:function (err) {
             this.errTipsFun('网络异常')

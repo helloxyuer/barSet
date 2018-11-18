@@ -26,7 +26,7 @@ var app = new Vue({
                     if(resVal.code==0){
                         that.myOrderList = resVal.data.list
                     }else{
-                        that.requestErrFun(resVal.msg)
+                        that.requestErrFun(res.data.msg)
                     }
                 }
             }).catch(that.netErrFun);
@@ -62,7 +62,7 @@ var app = new Vue({
                             that.getMyBarSet();
                         },1000)
                     }else{
-                        that.requestErrFun(resVal.msg)
+                        that.requestErrFun(res.data.msg)
                     }
                 }
             }).catch(function(err){
@@ -80,8 +80,8 @@ var app = new Vue({
                 that.tips = '';
             },time)
         },
-        requestErrFun:function (err) {
-            this.errTipsFun(err.msg)
+        requestErrFun:function (msg) {
+            this.errTipsFun(msg)
         },
         netErrFun:function (err) {
             this.errTipsFun('网络异常')

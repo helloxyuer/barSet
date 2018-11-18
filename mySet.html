@@ -17,7 +17,7 @@
     <div class="orderArrBox">
         <div class="orderBox" v-for="item in myOrderList">
             <div>
-                <span>{{item.arrivaldate}}</span>
+                <span>{{item.arrivaldate}} {{item.number}}桌</span>
                 <span class="cancel" @click="pickeedDel(item)">取消</span>
             </div>
             <div>
