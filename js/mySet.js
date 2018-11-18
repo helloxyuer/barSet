@@ -7,6 +7,8 @@ var app = new Vue({
         isSubmit:false,
         openId:passParams.openId,//传过来的参数
         myOrderList:[],//预订列表
+        deleteMsg:'',//删除座
+        showModel:false,
     },
     created: function () {
         this.getMyBarSet();
@@ -29,16 +31,26 @@ var app = new Vue({
                 }
             }).catch(that.netErrFun);
         },
+        pickeedDel:function(item){
+            this.delItem = item;
+            this.deleteMsg = item.arrivaldate+'的'+item.number;
+            this.showModel = true
+        },
+        //不取消
+        noDel:function(){
+            this.showModel = false
+        },
         //删除提交
-        cancelOrder(item){
+        cancelOrder(){
             var that = this;
             if(that.isSubmit){
                 that.errTipsFun('删除中,请稍后..')
                 return
             }
             var params = {
-                seatplanid:item.uuid,
+                seatplanid:this.delItem.uuid,
             }
+            this.showModel = false;
             that.isSubmit = true;
             instance.post('app/seat/celseatplan', Qs.stringify(params)).then(function (res) {
                 that.isSubmit = false;

@@ -18,7 +18,7 @@
         <div class="orderBox" v-for="item in myOrderList">
             <div>
                 <span>{{item.arrivaldate}}</span>
-                <span class="cancel" @click="cancelOrder(item)">取消</span>
+                <span class="cancel" @click="pickeedDel(item)">取消</span>
             </div>
             <div>
                 <div class="orderUnit">
@@ -67,6 +67,16 @@
                 </div>
             </div>
             <div class="spinner_text">提交中...</div>
+        </div>
+    </div>
+    <!--提示框-->
+    <div class="modelBg" v-show="showModel">
+        <div class="modelBox">
+            <div class="modelTitle">即将取消<br><span>{{deleteMsg}}</span><br>预定桌？</div>
+            <div class="modelBtnBox">
+                <div class="cancelBtn" @click="noDel">取消</div>
+                <div class="sureBtn" @click="cancelOrder">确定</div>
+            </div>
         </div>
     </div>
 </div>

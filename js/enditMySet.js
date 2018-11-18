@@ -5,8 +5,9 @@ var app = new Vue({
     data: {
         tips:'',
         isSubmit:false,
-        number:passParams.number,//传过来的参数
-        openId:passParams.openId,//传过来的参数
+        number:passParams.number||'',
+        maxnum:passParams.num||'',
+        openId:passParams.openId||'',
         arrivaldate:passParams.arrivaldate||'',//当前选择时间
         arrivaltime:'15:30',
         name:'',
@@ -23,12 +24,17 @@ var app = new Vue({
         },
         //获取店铺营业和停业时间
         getBarTime: function () {
+            var timeArr = [];
             var that = this;
             instance.post('app/seat/abouttime').then(function (res) {
                 var resVal = res.data;
                 if(res.status=='200' &&　resVal){
                     if(resVal.code==0){
-                        console.log(resVal.data)
+                        this.arrivaltime = resVal.data;
+                        this.arrivaltime = '9:00,22:00';
+                        var timeArr = this.arrivaltime.split(',');
+                        var startTime = timeArr[0].split(':');
+                        var endTime = timeArr[1].split(':');
                     }else{
                         that.requestErrFun(resVal.msg)
                     }
@@ -92,6 +98,11 @@ var app = new Vue({
                 this.errTipsFun('请输入到客人数')
                 return
             }
+            if (this.num>this.maxnum) {
+                this.errTipsFun('到客人数超过该桌最大人数')
+                return
+            }
+
             return true
         },
         errTipsFun:function (err,time) {
