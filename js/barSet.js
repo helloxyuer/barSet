@@ -48,7 +48,7 @@ var app = new Vue({
         getBarSet: function (time) {
             var that = this;
             var params = {
-                arrivaldate: time||'',
+                arrivaldate: time||this.arrivaldate,
                 page:1,
                 limit:30,
             }
