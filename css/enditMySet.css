@@ -58,3 +58,35 @@ input:disabled{
     background-color:#fff;
     color:#666;
 }
+.timebox{
+    float: left;
+    text-align: center;
+    width: calc(25% - 11px);
+    border-bottom: 1px solid #CCCCCC;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+}
+.timeModelBg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+.timeModel{
+    padding: 12px;
+    border-radius: 5px;
+    width: 80%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.timeTitle{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}

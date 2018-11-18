@@ -20,7 +20,7 @@
     <div class="selectedBox">
         <div class="iputBox">
             <div class="inputTitle">到店时间</div>
-            <div class="inputContent">
+            <div class="inputContent" @click="openTimePicker">
                 <input type="text" v-model="arrivaltime" placeholder="请选择到店时间" disabled="disabled">
             </div>
         </div>
@@ -70,6 +70,13 @@
                 </div>
             </div>
             <div class="spinner_text">提交中...</div>
+        </div>
+    </div>
+
+    <div class="timeModelBg" v-show="showTimePicker">
+        <div class="modelBox">
+            <div class="timeTitle">选择到店时间</div>
+            <div class="timebox" v-for="item in timeArr" @click="pickedTime(item)">{{item}}</div>
         </div>
     </div>
 </div>

@@ -5,11 +5,14 @@ var app = new Vue({
     data: {
         tips:'',
         isSubmit:false,
+        timeArr:[],
+        showTimePicker:false,//时间弹窗
+        barOpentime:'',//营业时间
         number:passParams.number||'',
         maxnum:passParams.num||'',
         openId:passParams.openId||'',
         arrivaldate:passParams.arrivaldate||'',//当前选择时间
-        arrivaltime:'15:30',
+        arrivaltime:'',
         name:'',
         phone:'',
         num:'',
@@ -20,26 +23,44 @@ var app = new Vue({
     methods: {
         //生成到店时间点
         creatTimeArr:function(){
-
+            this.barOpentime = '9:00,22:00';
+            var timeArrList = [];
+            var timeArr = this.barOpentime.split(',');
+            var startTime = timeArr[0].split(':');
+            var startTimeNum = (+startTime[0])*60 + (+startTime[1]);
+            var midTimeNum = startTimeNum;
+            var endTime = timeArr[1].split(':');
+            var endTimeNum = (+endTime[0])*60 + (+endTime[1]);
+            while((midTimeNum>=startTimeNum) && (endTimeNum>=midTimeNum)){
+                var min = midTimeNum%60;
+                timeArrList.push(parseInt(midTimeNum/60)+':'+(min==0?'00':min))
+                midTimeNum = midTimeNum + 30
+            }
+            this.timeArr = timeArrList;
         },
         //获取店铺营业和停业时间
         getBarTime: function () {
-            var timeArr = [];
             var that = this;
             instance.post('app/seat/abouttime').then(function (res) {
                 var resVal = res.data;
                 if(res.status=='200' &&　resVal){
                     if(resVal.code==0){
-                        this.arrivaltime = resVal.data;
-                        this.arrivaltime = '9:00,22:00';
-                        var timeArr = this.arrivaltime.split(',');
-                        var startTime = timeArr[0].split(':');
-                        var endTime = timeArr[1].split(':');
+                        that.barOpentime = resVal.data;
+                        that.creatTimeArr();
                     }else{
                         that.requestErrFun(resVal.msg)
                     }
                 }
             }).catch(that.netErrFun);
+        },
+        //打开时间弹窗
+        openTimePicker:function(){
+            this.showTimePicker = true;
+        },
+        //选择时间
+        pickedTime:function(item){
+            this.arrivaltime  = item;
+            this.showTimePicker = false;
         },
         //确认提交
         submitSet(){
