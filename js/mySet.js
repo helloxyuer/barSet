@@ -5,7 +5,6 @@ var app = new Vue({
     data: {
         tips:'',
         isSubmit:false,
-        openId:passParams.openId,//传过来的参数
         myOrderList:[],//预订列表
         deleteMsg:'',//删除座
         showModel:false,
@@ -18,7 +17,7 @@ var app = new Vue({
         getMyBarSet: function () {
             var that = this;
             var params = {
-                openId: this.openId||window.openid,
+                openId:sessionStorage.getItem('openid'),
             }
             instance.post('app/seat/myseatplan', Qs.stringify(params)).then(function (res) {
                 var resVal = res.data;

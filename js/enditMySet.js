@@ -10,7 +10,6 @@ var app = new Vue({
         barOpentime:'',//营业时间
         number:passParams.number||'',
         maxnum:passParams.num||'',
-        openId:passParams.openId||window.openid,
         arrivaldate:passParams.arrivaldate||'',//当前选择时间
         arrivaltime:'',
         name:'',
@@ -73,7 +72,7 @@ var app = new Vue({
                 return
             }
             var params = {
-                openId:this.openId||window.openid,
+                openId:sessionStorage.getItem('openid'),
                 number:this.number,
                 arrivaldate:this.arrivaldate,
                 arrivaltime:this.arrivaltime,
@@ -89,7 +88,7 @@ var app = new Vue({
                     if(resVal.code==0){
                         that.errTipsFun('预定成功')
                         setTimeout(function () {
-                            window.location.href ="mySet.html?openId="+(that.openId||'')
+                            window.location.replace("mySet.html")
                         },1000)
                     }else{
                         that.requestErrFun(res.data.msg)
@@ -132,7 +131,7 @@ var app = new Vue({
         },
         errTipsFun:function (err,time) {
             var that = this;
-            time = time||'1500';
+            time = time||'1000';
             that.tips = err;
             setTimeout(function () {
                 that.tips = '';

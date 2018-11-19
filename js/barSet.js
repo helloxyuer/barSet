@@ -7,7 +7,6 @@ var app = new Vue({
         selectSet:{},//锁定的座位
         isSubmit:false,
         setArr: [],
-        openId:''
     },
     created: function () {
         this.creatTimeArr();
@@ -105,7 +104,6 @@ var app = new Vue({
         },
         //提交座位数据
         submitSet(){
-            this.openId = window.openid;
             var that = this;
             var selectSet = this.setArr.find(function (data) {
                 if(data.pressed){
@@ -123,7 +121,7 @@ var app = new Vue({
             var params = {
                 number:selectSet.number ,
                 arrivaldate:this.arrivaldate,
-                openId:this.openId||window.openid,
+                openId:sessionStorage.getItem('openid'),
             }
             that.isSubmit = true;
             instance.post('app/seat/lockSeat', Qs.stringify(params)).then(function (res) {
@@ -133,7 +131,7 @@ var app = new Vue({
                     if(resVal.code==0){
                         that.errTipsFun('位置已为你锁定15分钟，请尽快完成预定操作')
                         setTimeout(function () {
-                            window.location.href ="enditMySet.html?arrivaldate="+(that.arrivaldate||'')+"&openId=" + (that.openId||'')+"&number=" + (selectSet.number||'')+"&num=" + (selectSet.num||'')
+                            window.location.href ="enditMySet.html?arrivaldate="+(that.arrivaldate||'')+"&number=" + (selectSet.number||'')+"&num=" + (selectSet.num||'')
                         },1000)
                     }else{
                         that.requestErrFun(res.data.msg)
