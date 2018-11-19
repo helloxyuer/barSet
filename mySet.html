@@ -15,7 +15,7 @@
 <div id="app" v-cloak>
     <div class="myorder">我的预定:</div>
     <div class="orderArrBox">
-        <div class="orderBox" v-for="item in myOrderList">
+        <div class="orderBox" v-if="myOrderList.length!=0" v-for="item in myOrderList">
             <div>
                 <span>{{item.arrivaldate}} {{item.number}}桌</span>
                 <span class="cancel" @click="pickeedDel(item)">取消</span>
@@ -39,6 +39,7 @@
                 </div>
             </div>
         </div>
+        <div class="noSetOrder" v-if="myOrderList.length==0">暂无订座哦</div>
     </div>
 
     <!--提示框-->

@@ -40,3 +40,8 @@
 .orderUnit:last-child {
     border-bottom: 0px;
 }
+.noSetOrder{
+    width: 100%;
+    margin: 40px 0;
+    text-align: center;
+}
