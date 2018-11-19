@@ -15,9 +15,13 @@ var app = new Vue({
     methods: {
         //获取订座信息
         getMyBarSet: function () {
+            var openid = sessionStorage.getItem('openid')
+            if(!openid){
+                return
+            }
             var that = this;
             var params = {
-                openId:sessionStorage.getItem('openid'),
+                openId:openid,
             }
             instance.post('app/seat/myseatplan', Qs.stringify(params)).then(function (res) {
                 var resVal = res.data;
