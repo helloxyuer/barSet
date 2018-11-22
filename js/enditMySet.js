@@ -22,7 +22,6 @@ var app = new Vue({
     methods: {
         //生成到店时间点
         creatTimeArr:function(){
-            this.barOpentime = '9:00,22:00';
             var timeArrList = [];
             var timeArr = this.barOpentime.split(',');
             var startTime = timeArr[0].split(':');
