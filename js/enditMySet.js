@@ -26,6 +26,16 @@ var app = new Vue({
             var timeArr = this.barOpentime.split(',');
             var startTime = timeArr[0].split(':');
             var startTimeNum = (+startTime[0])*60 + (+startTime[1]);
+            if(new Date(passParams.arrivaldate).toDateString()== new Date().toDateString()){
+                var nowTime = new Date();
+                var hour = nowTime.getHours();
+                var min = nowTime.getMinutes();
+                if(min<30){
+                    startTimeNum = (+hour)*60 + 30;
+                }else{
+                    startTimeNum = (+hour+1)*60 + 0;
+                }
+            }
             var midTimeNum = startTimeNum;
             var endTime = timeArr[1].split(':');
             var endTimeNum = (+endTime[0])*60 + (+endTime[1]);
