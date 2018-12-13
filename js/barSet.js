@@ -47,6 +47,7 @@ var app = new Vue({
             var that = this;
             var params = {
                 arrivaldate: time||this.arrivaldate,
+                openId:sessionStorage.getItem('openid'),
                 page:1,
                 limit:30,
             }
