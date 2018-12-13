@@ -1,5 +1,5 @@
 var instance = axios.create({
-    baseURL: window.location.origin+'/renren-fast/',
+    baseURL: window.location.origin+'/danlife/',
     timeout: 1000,
 });
 
