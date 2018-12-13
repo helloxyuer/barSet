@@ -13,8 +13,12 @@ if(!sessionStorage.getItem('openid')&&!params.code){
             if(res.status=='200' &&　resVal){
                 if(resVal.code==0){
                     sessionStorage.setItem('openid',resVal.data)
+                    alert(resVal.data)
                     if(app && app.getMyBarSet){
                         app.getMyBarSet()
+                    }
+                    if(app && app.getBarSet){
+                        app.getBarSet()
                     }
                 }
             }

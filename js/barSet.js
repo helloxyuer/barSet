@@ -1,3 +1,4 @@
+alert(sessionStorage.getItem('openid'))
 var app = new Vue({
     el: '#app',
     data: {
@@ -44,10 +45,14 @@ var app = new Vue({
         },
         //获取可预定座位列表
         getBarSet: function (time) {
+            var openid = sessionStorage.getItem('openid')
+            if(!openid){
+                return
+            }
             var that = this;
             var params = {
                 arrivaldate: time||this.arrivaldate,
-                openId:sessionStorage.getItem('openid'),
+                openId:openid,
                 page:1,
                 limit:30,
             }
