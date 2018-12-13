@@ -1,4 +1,3 @@
-alert(sessionStorage.getItem('openid'))
 var app = new Vue({
     el: '#app',
     data: {
