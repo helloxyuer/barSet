@@ -70,6 +70,10 @@ var app = new Vue({
             this.arrivaltime  = item;
             this.showTimePicker = false;
         },
+        //隐藏弹窗
+        hidebg:function(){
+            this.showTimePicker = false;
+        },
         //确认提交
         submitSet(){
             var that = this;

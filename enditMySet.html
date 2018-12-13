@@ -73,10 +73,10 @@
         </div>
     </div>
 
-    <div class="timeModelBg" v-show="showTimePicker">
+    <div class="timeModelBg" v-show="showTimePicker" @click="hidebg()">
         <div class="modelBox">
             <div class="timeTitle">选择到店时间</div>
-            <div class="timebox" v-for="item in timeArr" @click="pickedTime(item)">{{item}}</div>
+            <div class="timebox" v-for="item in timeArr" @click.stop="pickedTime(item)">{{item}}</div>
         </div>
     </div>
 </div>
